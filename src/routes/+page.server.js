@@ -24,7 +24,7 @@ const s3 = new S3Client({
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ url }) {
-	let prefix = decodeURIComponent(url.searchParams.get('prefix')) || '';
+	let prefix = decodeURIComponent(url.searchParams.get('prefix') || '');
 	if (prefix === '/') prefix = '';
 	const data = await s3.send(
 		new ListObjectsV2Command({
