@@ -20,9 +20,14 @@ const s3 = new S3Client({
 });
 
 /** @type {import('./$types').PageLoad} */
-export async function load({ url }) {
+export async function load({ platform, url }) {
 	let prefix = decodeURIComponent(url.searchParams.get('prefix') || '');
 	if (prefix === '/') prefix = '';
+
+	if (platform?.env?.CACHE) {
+		const data = await platform.env.CACHE.get(prefix);
+		if (data) return data;
+	}
 
 	const command = new ListObjectsV2Command({
 		Bucket: S3_BUCKET,
@@ -47,17 +52,18 @@ export async function load({ url }) {
 
 	let up = prefix.split('/').slice(0, -2).join('/');
 	if (up.length > 0) up += '/';
-	return {
+
+	const cacheable = {
 		prefix,
 		folders: [
 			...(prefix.length > 1
 				? [
-						{
-							name: '..',
-							path: '',
-							url: `/?prefix=${encodeURIComponent(up)}`
-						}
-				  ]
+					{
+						name: '..',
+						path: '',
+						url: `/?prefix=${encodeURIComponent(up)}`
+					}
+				]
 				: []),
 			...(data.CommonPrefixes?.map(({ Prefix }) => ({
 				name: Prefix.slice(prefix.length),
@@ -74,4 +80,8 @@ export async function load({ url }) {
 				url: encodeURI(`${CDN}/${Key}`)
 			})) || []
 	};
+
+	if (platform?.env?.CACHE) await platform.env.CACHE.put(prefix, cacheable, { expirationTtl: 3600 }); // cache for an hour
+
+	return cacheable;
 }
