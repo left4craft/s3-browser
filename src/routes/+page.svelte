@@ -57,7 +57,7 @@
 
 			{#if breadcrumbParts.length > 0}
 				<div
-					class="overflow-x-scroll flex items-center justify-start gap-2 p-4 bg-neutral-800 rounded-xl mb-4"
+					class="flex items-center justify-start gap-2 p-4 bg-neutral-800 rounded-xl mb-4"
 				>
 					<a href="/?prefix=" class="link" data-sveltekit-reload>
 						<svg

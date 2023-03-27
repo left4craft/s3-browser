@@ -48,7 +48,6 @@ export async function load({ platform, url }) {
 	}
 
 	const data = { CommonPrefixes: prefixArray, Contents: contentArray };
-	console.log(prefixArray);
 
 	let up = prefix.split('/').slice(0, -2).join('/');
 	if (up.length > 0) up += '/';
