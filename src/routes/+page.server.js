@@ -25,7 +25,7 @@ export async function load({ platform, url }) {
 	if (prefix === '/') prefix = '';
 
 	if (platform?.env?.CACHE) {
-		const data = await platform.env.CACHE.get(prefix);
+		const data = await platform.env.CACHE.get(prefix || '/');
 		if (data) return data;
 	}
 
@@ -81,7 +81,7 @@ export async function load({ platform, url }) {
 			})) || []
 	};
 
-	if (platform?.env?.CACHE) await platform.env.CACHE.put(prefix, cacheable, { expirationTtl: 3600 }); // cache for an hour
+	if (platform?.env?.CACHE) await platform.env.CACHE.put(prefix || '/', cacheable, { expirationTtl: 3600 }); // cache for an hour
 
 	return cacheable;
 }
