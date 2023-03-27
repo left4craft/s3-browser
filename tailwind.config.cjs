@@ -13,7 +13,7 @@ const config = {
 				 * secondary: '#66aa44'
 				 */
 				primary: '#66aa44'
-			},
+			}
 		}
 	},
 

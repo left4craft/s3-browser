@@ -4,7 +4,9 @@
 
 	import filesize from 'file-size';
 	import TableRow from '../components/TableRow.svelte';
-	console.log(data);
+	console.log('Folders: ', data.folders.length);
+	console.log('Objects: ', data.objects.length);
+	// console.log(data);
 	const { folders, objects } = data;
 </script>
 
@@ -16,10 +18,10 @@
 	<div class="m-2 p-4 sm:p-8">
 		<h1 class="text-2xl md:text-4xl font-bold mb-8">Left4Craft Downloads</h1>
 		<p class="text-lg">
-			This page allows you to browse Left4Craft's archives,
-			primarily for the old worlds.
-			 For more information about downloading old worlds, see
-			<a href="https://wiki.left4craft.org/old-worlds/" class="link" rel="external">the wiki page</a>.
+			This page allows you to browse Left4Craft's archives, primarily for the old worlds. For more
+			information about downloading old worlds, see
+			<a href="https://wiki.left4craft.org/old-worlds/" class="link" rel="external">the wiki page</a
+			>.
 		</p>
 	</div>
 	<div class="flex flex-col">
@@ -59,7 +61,7 @@
 												viewBox="0 0 24 24"
 												stroke-width="1.5"
 												stroke="currentColor"
-												class="w-6 h-6 text-neutral-400 "
+												class="w-6 h-6 text-neutral-400"
 											>
 												<path
 													stroke-linecap="round"
