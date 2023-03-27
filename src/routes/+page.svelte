@@ -19,7 +19,7 @@
 			This page allows you to browse Left4Craft's archives,
 			primarily for the old worlds.
 			 For more information about downloading old worlds, see
-			<a href="https://wiki.left4craft.org/old-worlds/" class="link">the wiki page</a>.
+			<a href="https://wiki.left4craft.org/old-worlds/" class="link" rel="external">the wiki page</a>.
 		</p>
 	</div>
 	<div class="flex flex-col">
@@ -69,7 +69,7 @@
 											</svg>
 										{/if}
 
-										<a href={folder.url} class="link">
+										<a href={folder.url} class="link" data-sveltekit-reload>
 											{folder.name}
 										</a>
 									</td>
@@ -111,7 +111,7 @@
 												/>
 											</svg>
 										{/if}
-										<a href={object.url} class="link" download>
+										<a href={object.url} class="link" rel="external" download>
 											{object.name}
 										</a>
 									</td>
