@@ -111,7 +111,7 @@
 												/>
 											</svg>
 										{/if}
-										<a href={object.url} class="link" rel="external" download>
+										<a href={object.url} class="link" rel="external">
 											{object.name}
 										</a>
 									</td>
