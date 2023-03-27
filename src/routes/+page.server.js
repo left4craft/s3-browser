@@ -48,6 +48,7 @@ export async function load({ url }) {
 	let up = prefix.split('/').slice(0, -2).join('/');
 	if (up.length > 0) up += '/';
 	return {
+		prefix,
 		folders: [
 			...(prefix.length > 1
 				? [
