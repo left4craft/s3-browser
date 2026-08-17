@@ -18,11 +18,6 @@ export async function load({ platform, url, setHeaders }) {
 	let prefix = decodeURIComponent(url.searchParams.get('prefix') || '');
 	if (prefix === '/') prefix = '';
 
-	if (platform?.env?.CACHE) {
-		const data = await platform.env.CACHE.get(prefix || '/');
-		if (data) return JSON.parse(data);
-	}
-
 	const command = new ListObjectsV2Command({
 		Bucket: env.S3_BUCKET,
 		Prefix: prefix,
