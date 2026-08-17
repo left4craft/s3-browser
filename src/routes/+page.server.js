@@ -20,7 +20,7 @@ const s3 = new S3Client({
 });
 
 /** @type {import('./$types').PageLoad} */
-export async function load({ platform, url }) {
+export async function load({ platform, url, setHeaders }) {
 	let prefix = decodeURIComponent(url.searchParams.get('prefix') || '');
 	if (prefix === '/') prefix = '';
 
@@ -80,7 +80,9 @@ export async function load({ platform, url }) {
 			})) || []
 	};
 
-	if (platform?.env?.CACHE) await platform.env.CACHE.put(prefix || '/', JSON.stringify(cacheable), { expirationTtl: 3600 }); // cache for an hour
+	setHeaders({
+		'Cache-Control': 'public, max-age=300, stale-while-revalidate=86400'
+	});
 
 	return cacheable;
 }

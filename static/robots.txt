@@ -1,0 +1,4 @@
+# disallow all but the root prefix query
+User-agent: *
+Allow: /$
+Disallow: /*?*

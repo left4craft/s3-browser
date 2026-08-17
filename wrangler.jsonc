@@ -1,0 +1,25 @@
+{
+	"name": "left4download",
+	"main": ".svelte-kit/cloudflare/_worker.js",
+	"compatibility_flags": [],
+	"compatibility_date": "2026-08-16",
+	"assets": {
+		"binding": "ASSETS",
+		"directory": ".svelte-kit/cloudflare"
+	},
+    "cache": {
+        "enabled": true
+    },
+    "vars": {
+        "CDN": "https://get.left4craft.download",
+        "S3_BUCKET": "left4craft-public",
+        "S3_ENDPOINT": "https://s3.us-west-000.backblazeb2.com",
+        "S3_REGION": "us-west-000"
+    },
+    "secrets": {
+        "required": [
+            "S3_ACCESS_KEY",
+            "S3_SECRET_KEY"
+        ]
+    }
+}
