@@ -1,7 +1,11 @@
 {
 	"name": "left4download",
 	"main": ".svelte-kit/cloudflare/_worker.js",
-	"compatibility_flags": [],
+	"compatibility_flags": [
+        "nodejs_als",
+        "nodejs_compat",
+        "nodejs_compat_v2"
+    ],
 	"compatibility_date": "2026-08-16",
 	"assets": {
 		"binding": "ASSETS",
