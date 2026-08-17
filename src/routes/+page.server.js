@@ -5,7 +5,7 @@ import {
 	S3_ENDPOINT,
 	S3_REGION,
 	S3_SECRET_KEY
-} from '$env/static/private';
+} from '$env/dynamic/private';
 
 import { ListObjectsV2Command, S3Client } from '@aws-sdk/client-s3';
 
