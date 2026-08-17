@@ -9,6 +9,7 @@
 		"binding": "ASSETS",
 		"directory": ".svelte-kit/cloudflare"
 	},
+    "workers_dev": true,
     "cache": {
         "enabled": true
     },
