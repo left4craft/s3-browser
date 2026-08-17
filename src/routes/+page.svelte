@@ -12,6 +12,7 @@
 
 <svelte:head>
 	<title>Left4Craft Downloads</title>
+	<link rel="canonical" href="https://left4craft.download" />
 </svelte:head>
 
 <main>
