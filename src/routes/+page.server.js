@@ -1,21 +1,14 @@
-import {
-	CDN,
-	S3_ACCESS_KEY,
-	S3_BUCKET,
-	S3_ENDPOINT,
-	S3_REGION,
-	S3_SECRET_KEY
-} from '$env/dynamic/private';
+import { env } from '$env/dynamic/private';
 
 import { ListObjectsV2Command, S3Client } from '@aws-sdk/client-s3';
 
 const s3 = new S3Client({
 	credentials: {
-		accessKeyId: S3_ACCESS_KEY,
-		secretAccessKey: S3_SECRET_KEY
+		accessKeyId: env.S3_ACCESS_KEY,
+		secretAccessKey: env.S3_SECRET_KEY
 	},
-	endpoint: S3_ENDPOINT,
-	region: S3_REGION,
+	endpoint: env.S3_ENDPOINT,
+	region: env.S3_REGION,
 	signatureVersion: 'v4'
 });
 
@@ -30,7 +23,7 @@ export async function load({ platform, url, setHeaders }) {
 	}
 
 	const command = new ListObjectsV2Command({
-		Bucket: S3_BUCKET,
+		Bucket: env.S3_BUCKET,
 		Prefix: prefix,
 		Delimiter: '/'
 	});
@@ -76,7 +69,7 @@ export async function load({ platform, url, setHeaders }) {
 				lastModified: LastModified,
 				size: Size,
 				path: Key,
-				url: encodeURI(`${CDN}/${Key}`)
+				url: encodeURI(`${env.CDN}/${Key}`)
 			})) || []
 	};
 
