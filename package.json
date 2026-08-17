@@ -30,7 +30,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@aws-sdk/client-s3": "^3.299.0",
+		"@aws-sdk/client-s3": "^3.1111.0",
 		"@sveltejs/adapter-cloudflare": "^7.2.9",
 		"file-size": "^1.0.0"
 	}
