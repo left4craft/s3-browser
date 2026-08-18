@@ -13,10 +13,8 @@
 	},
 	"routes": [
 		{
-			// note the absence of a * wildcard
-			"pattern": "left4craft.download/",
-			"custom_domain": false,
-			"zone_name": "left4craft.download"
+			"pattern": "left4craft.download",
+			"custom_domain": true
 		}
 	],
 	"vars": {
