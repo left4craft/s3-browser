@@ -12,8 +12,12 @@
 		"enabled": true
 	},
 	"routes": [
-		// note the absence of a * wildcard
-		{ "pattern": "left4craft.download/", "custom_domain": true }
+		{
+			// note the absence of a * wildcard
+			"pattern": "left4craft.download/",
+			"custom_domain": false,
+			"zone_name": "left4craft.download"
+		}
 	],
 	"vars": {
 		"CDN": "https://get.left4craft.download",
