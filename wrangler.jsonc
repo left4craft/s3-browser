@@ -11,6 +11,10 @@
 	"cache": {
 		"enabled": true
 	},
+	"routes": [
+		// note the absence of a * wildcard
+		{ "pattern": "left4craft.download/", "custom_domain": true }
+	],
 	"vars": {
 		"CDN": "https://get.left4craft.download",
 		"S3_BUCKET": "left4craft-public",
